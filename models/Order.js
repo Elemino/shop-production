@@ -1,7 +1,7 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
-var Order = new keystone.List('Order');
+var Order = new keystone.List('Order',{nocreate:true, noedit:true});
 
 Order.add({
 	customer: { type: Types.Relationship, ref: 'User', many: false, index: true,initial:true },
