@@ -2,8 +2,11 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var Order = new keystone.List('Order',{nocreate:true, noedit:true});
 =======
+=======
+>>>>>>> parent of f9bcb92... Update Models
 /**
  * Order Model
  * ==========
