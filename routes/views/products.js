@@ -11,8 +11,8 @@ exports = module.exports = function (req, res) {
   locals.title = 'products';
   views.on('init', function(next){
 
-    Product
-    
+    Products
+
   })
 
 	// Render the view
