@@ -10,8 +10,8 @@ var keystone = require('keystone');
 // and documentation.
 
 keystone.init({
-	'name': 'composing',
-	'brand': 'composing',
+	'name': 'Smash Muff Filters',
+	'brand': 'Smash Muff Filters',
 
 	'sass': 'public',
 	'static': 'public',
