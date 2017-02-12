@@ -11,7 +11,7 @@ exports = module.exports = function (req, res) {
 
 
 
-view.query('products', keystone.list('Product').model().find());
+view.query('products', keystone.list('Product').model.find());
 
 	// Render the view
 	view.render('index');
