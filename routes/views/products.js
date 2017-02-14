@@ -1,4 +1,5 @@
 var keystone = require('keystone');
+var Product = keystone.list('Product');
 
 exports = module.exports = function (req, res) {
 
@@ -7,12 +8,25 @@ exports = module.exports = function (req, res) {
 
 	// locals.section is used to set the currently selected
 	// item in the header navigation.
-	locals.section = 'home';
+	locals.section = 'products';
+	locals.title = 'products';
+
+
+	view.on('init', function(next) {
+		Product.paginate({
+			page:req.query.page||1,
+			perPage:2,
+			maxPage:10
+		}).exec(function(err,res){
+			locals.products = res;
+			next(err);
+		});
+	})
 
 
 
-view.query('products', keystone.list('Product').model.find());
+
 
 	// Render the view
-	view.render('index');
+	view.render('products');
 };
