@@ -1,24 +1,38 @@
 extends ../layouts/default
+include ../mixins/product
 
 
 block content
-	.container: .jumbotron
-		img(src='/images/logo.svg', width='160')
-		h1 Welcome to Prod page
-		p This is your new <a href='http://keystonejs.com' target='_blank'>KeystoneJS</a> website.
-		p It includes the latest versions of
-			| <a href='http://getbootstrap.com/' target='_blank'>Bootstrap</a>
-			| and <a href='http://www.jquery.com/' target='_blank'>jQuery</a>.
-		p Visit the <a href='http://keystonejs.com/guide' target='_blank'>Getting Started</a> guide to learn how to customise it.
-		hr
-		if user && user.canAccessKeystone
-			p
-				a(href='/keystone').btn.btn-lg.btn-primary Open the Admin UI
-		else
-			p We have created a default Admin user for you with the email <strong>elemshalit@gmail.com</strong> and the password <strong>password</strong>.
-			p
-				a(href='/keystone/signin', style='margin-right: 10px').btn.btn-lg.btn-primary Sign in
-				|  to use the Admin UI.
-		hr
-		p Remember to <a href='https://github.com/keystonejs/keystone' target='_blank'>Star KeystoneJS on GitHub</a> and
-			| <a href='https://twitter.com/keystonejs' target='_blank'>follow @keystonejs</a> on twitter for updates.
+    .container
+        h1 Products list 
+        if products.results.length
+            if products.totalPages > 1
+                .lead.text-muted Showing 
+                    strong #{products.first}
+                    |  to 
+                    strong #{products.last}
+                    |  of 
+                    strong #{products.total}
+                    |  products
+            else
+                .lead.text-muted Showing #{utils.plural(products.results.length, '* post')}
+            .blog
+                each post in products.results
+                    ul
+                        +product(post)
+             if products.totalPages > 1
+                 ul.pagination
+                    if products.previous
+                        li: a(href='?page=' + products.previous): span.glyphicon.glyphicon-chevron-left
+                    else
+                        li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
+                    each p, i in products.pages
+                        li(class=products.currentPage === p ? 'active' : null)
+                            a(href='?page=' + (p === '...' ? (i ? products.totalPages : 1) : p ))= p
+                    if products.next
+                        li: a(href='?page=' + products.next): span.glyphicon.glyphicon-chevron-right
+                    else
+                        li.disabled: a(href='?page=' + products.totalPages): span.glyphicon.glyphicon-chevron-right
+                else
+                    .jumbotron.text-center
+                    h3(style="margin-bottom:0;margin-top:0;") There are no products yet.

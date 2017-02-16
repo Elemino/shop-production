@@ -47,10 +47,10 @@ Enquiry.schema.methods.sendNotificationEmail = function (callback) {
 		}).send({
 			to: admins,
 			from: {
-				name: 'composing',
-				email: 'contact@composing.com',
+				name: 'Smash Muff Filters',
+				email: 'contact@smf.com',
 			},
-			subject: 'New Enquiry for composing',
+			subject: 'New Enquiry for Smash Muff Filters',
 			enquiry: enquiry,
 		}, callback);
 	});

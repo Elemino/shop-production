@@ -24,8 +24,8 @@ module.exports = {
 
 		var newEnquiry = new Enquiry.model({
 			name: { first: 'Test', last: 'User' },
-			email: 'contact@composing.com',
-			phone: '+61 2 1234 5678',
+			email: 'contact@smf.com',
+			phone: '+1 778 6782518',
 			enquiryType: 'message',
 			message: { md: 'Nice enquiry notification.' },
 		});
