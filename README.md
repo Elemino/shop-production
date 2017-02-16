@@ -1,5 +1,7 @@
 # smashmuff-keystone
-My online store.  
+My store.
+
+As of 15/2/17, this project is in development stages. It might be unstable in the next couple of days.   
 
 
-To run this keystone cms app please clone and run 'node keystone' at root directory. If you have questions please let me know. 
+To run this keystone app, please clone and run 'node keystone' at root directory.
