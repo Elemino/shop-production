@@ -6,9 +6,8 @@ exports = module.exports = function (req, res) {
 	var view = new keystone.View(req, res);
   if(req.user == undefined){
     view.render("errors/404");
-    return
+    return;
   }
-
   console.log("loggedin user = "+req.user.mail);
 
 
@@ -21,7 +20,7 @@ exports = module.exports = function (req, res) {
 
 
 	view.on('init', function(next) {
-		Product.paginate({
+		Order.paginate({
 			page:req.query.page||1,
 			perPage:2,
 			maxPage:10
@@ -29,7 +28,7 @@ exports = module.exports = function (req, res) {
     .where('customer', req.user.id)
     .sort('-publishedDate')
     .exec(function(err,res){
-			locals.products = res;
+			locals.Orders = res;
 			next(err);
 		});
 	})
