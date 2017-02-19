@@ -8,7 +8,7 @@ var Order = new keystone.List('Order',{nocreate:true, noedit:true});
  * Order Model
  * ==========
  */
-var Order = new keystone.List('Order',{nocreate:true,noedit:true});
+var Order = new keystone.List('Order')
 
 
 Order.add({

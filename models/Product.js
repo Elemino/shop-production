@@ -2,14 +2,8 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 
-var Product = new keystone.List('Product', {
+var Product = new keystone.List('Product')
 
-	map: {name: 'title'},
-	singular: 'Product',
-	plural: 'Products',
-	autokey: {path: 'slug', from: 'title', unique: true}
-
-});
 
 Product.add({
 	name: { type: Types.Text, required: true, initial: true },

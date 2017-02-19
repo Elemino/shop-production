@@ -26,9 +26,9 @@ block content
                     else
                         li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
                     each p, i in Orders.pages
-                        li(class=products.currentPage === p ? 'active' : null)
+                        li(class=Orders.currentPage === p ? 'active' : null)
                             a(href='?page=' + (p === '...' ? (i ? Orders.totalPages : 1) : p ))= p
-                    if orders.next
+                    if Orders.next
                         li: a(href='?page=' + Orders.next): span.glyphicon.glyphicon-chevron-right
                     else
                         li.disabled: a(href='?page=' + Orders.totalPages): span.glyphicon.glyphicon-chevron-right
