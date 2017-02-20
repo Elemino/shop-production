@@ -2,11 +2,10 @@ extends ../layouts/default
 
 block content
     .container
-        h1 product.name
-        h2= '$ '+ product.price
-        h3=prouct.description
-        <button data-action="bea" class="btn btn-primary" onclick="add_to_cart('#{product.id}','#{product.price}')">Add
-        to Cart</button>
+        h1= product.name
+        h2='$ '+ product.price
+        h3=product.description
+        <button data-action="bea" class="btn btn-primary" onclick="add_to_cart('#{product.id}','#{product.price}')">Add to Cart</button>
         
 block js
        script(src='/js/cart.js')

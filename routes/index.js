@@ -37,8 +37,8 @@ exports = module.exports = function(app) {
 	app.get('/', routes.views.index);
 	app.get('/products', routes.views.products);
 	app.get('/myorders', routes.views.myorders);
-	app.get('/contact', routes.views.index);
-	app.get('/products/:product_id', routes.views.products);
+	app.get('/contact', routes.views.contact);
+	app.get('/product/:product_id', routes.views.product);
 	app.get('/order/:order_id', routes.views.order);
 
 

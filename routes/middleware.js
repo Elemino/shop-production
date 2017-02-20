@@ -23,12 +23,13 @@ exports.initLocals = function (req, res, next) {
 
 	res.locals.navLinks = [
 		{ label: 'Home', key: 'home', href: '/home' },
-		{ label: 'Products', key: 'product', href: '/products' },
+		{ label: 'Contact', key: 'contact', href: '/contact' },
+		{ label: 'Products', key: 'product', href: '/products' }
 
 	];
 
 	if(req.user)locals.navLinks.push({ label: 'Myorder',    key: 'myorders', href: '/myorders' });
-	
+
 	res.locals.user = req.user;
 
 	next();
@@ -49,7 +50,6 @@ exports.flashMessages = function (req, res, next) {
 	res.locals.messages = _.some(flashMessages, function (msgs) { return msgs.length; }) ? flashMessages : false;
 	next();
 };
-
 
 /**
 	Prevents people from accessing protected pages when they're not signed in
