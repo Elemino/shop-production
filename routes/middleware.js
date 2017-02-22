@@ -29,9 +29,13 @@ exports.initLocals = function (req, res, next) {
 	];
 
 	if(req.user)locals.navLinks.push({ label: 'Myorder',    key: 'myorders', href: '/myorders' });
-
-	res.locals.user = req.user;
-
+  locals.user = req.user;
+	if(req.session.cart == undefined )req.session.cart = [];
+	 res.locals.grandtotal = 0;
+	req.session.cart.forEach( function (product)
+	{
+		res.locals.grandtotal += product.price;
+	});
 	next();
 
 };
