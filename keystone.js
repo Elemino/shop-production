@@ -3,7 +3,8 @@
 require('dotenv').config();
 
 // Require keystone
-var keystone = require('keystone');
+
+var keystone = require('keystone')
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -29,6 +30,10 @@ keystone.init({
 
 // Load your project's Models
 keystone.import('models');
+
+
+    var User = keystone.list('User');
+    new User.model().save();
 
 // Setup common locals for your templates. The following are required for the
 // bundled templates and layouts. Any runtime locals (that should be set uniquely
