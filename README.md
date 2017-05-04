@@ -1,4 +1,4 @@
-# Online store built with Keystone JS to support my audio electronics products.
+# Online store built with Keystone JS to support my electronics products.
 
 The project is still in development stages as of 15/4/17. Things might be unstable in the next couple of days.   
 

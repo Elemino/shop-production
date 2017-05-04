@@ -4,14 +4,14 @@ include ../mixins/product
 
 block content
     .container
-        h1 Products list 
+        h1 Products list
         if products.results.length
             if products.totalPages > 1
-                .lead.text-muted Showing 
+                .lead.text-muted Showing
                     strong #{products.first}
-                    |  to 
+                    |  to
                     strong #{products.last}
-                    |  of 
+                    |  of
                     strong #{products.total}
                     |  products
             else
@@ -20,7 +20,7 @@ block content
                 each post in products.results
                     ul
                         +product(post)
-             if products.totalPages > 1
+            if products.totalPages > 1
                  ul.pagination
                     if products.previous
                         li: a(href='?page=' + products.previous): span.glyphicon.glyphicon-chevron-left
@@ -31,7 +31,7 @@ block content
                             a(href='?page=' + (p === '...' ? (i ? products.totalPages : 1) : p ))= p
                     if products.next
                         li: a(href='?page=' + products.next): span.glyphicon.glyphicon-chevron-right
-                    else
+                  else
                         li.disabled: a(href='?page=' + products.totalPages): span.glyphicon.glyphicon-chevron-right
                 else
                     .jumbotron.text-center
