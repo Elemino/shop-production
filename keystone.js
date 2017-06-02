@@ -11,8 +11,8 @@ var keystone = require('keystone')
 // and documentation.
 
 keystone.init({
-	'name': 'Smash Muff Filters',
-	'brand': 'Smash Muff Filters',
+	'name': 'Earo',
+	'brand': 'Earo',
 
 	'sass': 'public',
 	'static': 'public',

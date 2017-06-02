@@ -14,7 +14,7 @@ block content
                     |  of
                     strong #{products.total}
                     |  products
-            else
+                    else
                 .lead.text-muted Showing #{utils.plural(products.results.length, '* post')}
             .blog
                 each post in products.results
