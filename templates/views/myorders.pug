@@ -1,37 +1,38 @@
 extends ../layouts/default
 include ../mixins/order
 
+
 block content
-    .container
-        h1 Myorders list
-        if Orders.results.length
-            if Orders.totalPages > 1
-                .lead.text-muted Showing
-                    strong #{Orders.first}
-                    |  to
-                    strong #{Orders.last}
-                    |  of
-                    strong #{Orders.total}
-                    |  Orders
-            else
-                .lead.text-muted Showing #{utils.plural(Orders.results.length, '* post')}
-            .blog
-                each post in Orders.results
-                    ul
-                        +order(post)
-            if Orders.totalPages > 1
-                 ul.pagination
-                    if Orders.previous
-                        li: a(href='?page=' + Orders.previous): span.glyphicon.glyphicon-chevron-left
-                    else
-                        li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
-                    each p, i in Orders.pages
-                        li(class=Orders.currentPage === p ? 'active' : null)
-                            a(href='?page=' + (p === '...' ? (i ? Orders.totalPages : 1) : p ))= p
-                    if Orders.next
-                        li: a(href='?page=' + Orders.next): span.glyphicon.glyphicon-chevron-right
-                    else
-                        li.disabled: a(href='?page=' + Orders.totalPages): span.glyphicon.glyphicon-chevron-right
-                else
-                    .jumbotron.text-center
-                    h3(style="margin-bottom:0;margin-top:0;") There are no products yet.
+		.container
+				h1 Myorders list
+				if Orders.results.length
+						if Orders.totalPages > 1
+								.lead.text-muted Showing
+										strong #{Orders.first}
+										|  to
+										strong #{Orders.last}
+										|  of
+										strong #{Orders.total}
+										|  Orders
+						else
+								.lead.text-muted Showing #{utils.plural(Orders.results.length, '* post')}
+						.blog
+								each post in Orders.results
+										ul
+												+order(post)
+						if Orders.totalPages > 1
+								ul.pagination
+										if Orders.previous
+												li: a(href='?page=' + Orders.previous): span.glyphicon.glyphicon-chevron-left
+										else
+												li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
+										each p, i in Orders.pages
+												li(class=Orders.currentPage === p ? 'active' : null)
+													a(href='?page=' + (p === '...' ? (i ? Orders.totalPages : 1) : p ))= p
+										if Orders.next
+												li: a(href='?page=' + Orders.next): span.glyphicon.glyphicon-chevron-right
+										else
+											li.disabled: a(href='?page=' + Orders.totalPages): span.glyphicon.glyphicon-chevron-right
+						else
+								.jumbotron.text-center
+										h3(style="margin-bottom:0;margin-top:0;") There are no products yet.
