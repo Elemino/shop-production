@@ -11,6 +11,7 @@ var keystone = require('keystone')
 // and documentation.
 
 keystone.init({
+	'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://<smf>:<mlab123E>@ds029466.mlab.com:29466/smf',
 	'name': 'Earo',
 	'brand': 'Earo',
 
@@ -25,7 +26,8 @@ keystone.init({
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'User',
+	'user model': 'User'
+
 });
 
 // Load your project's Models
