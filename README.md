@@ -1,6 +1,9 @@
-# Online store built with Keystone JS to support my electronics products.
+# Online store built with Keystone JS to support my hardware projects.
 
-The project is still in development stages as of 15/6/17. Things might be unstable in the next couple of days.   
+The project is still in development stages as of 15/6/17. Things might be unstable in the next couple of days. This app contains a shopping cart along with products lists and id's.  
 
 
-To run the app, please clone and run 'node keystone' at root directory.
+
+Instructions:
+
+Make sure you have mongodb, node and yeoman and all the dependencies installed, and run 'node keystone' at root directory. 
