@@ -80,4 +80,14 @@ keystone.set('nav', {
 
 // Start Keystone to connect to your database and initialise the web server
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://<smf>:<mlab123E>@ds029466.mlab.com:29466/smf');
+
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+});
+
 keystone.start();
