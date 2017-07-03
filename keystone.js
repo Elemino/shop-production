@@ -50,6 +50,27 @@ keystone.set('locals', {
 // Load your project's Routes
 keystone.set('routes', require('./routes'));
 
+
+
+
+
+//Cloudinary config
+
+
+cloudinary.config({
+  cloud_name: 'sample',
+  api_key: '726856275187511',
+  api_secret: 'IVP8UuvsbIrU1UOx7v-SxT_s2fU'
+});
+
+
+keystone.init({
+
+    'cloudinary config': 'cloudinary://726856275187511:IVP8UuvsbIrU1UOx7v-SxT_s2fU@earo/',
+    
+});
+
+
 // Setup common locals for your emails. The following are required by Keystone's
 // default email templates, you may remove them if you're using your own.
 keystone.set('email locals', {
@@ -99,10 +120,4 @@ conn.on('error', console.error.bind(console, 'connection error:'));
 
 conn.once('open', function() {
   // Wait for the database connection to establish, then start the app.
-});
-
-cloudinary.config({ 
-  cloud_name: 'sample',
-  api_key: '726856275187511',
-  api_secret: 'IVP8UuvsbIrU1UOx7v-SxT_s2fU'
 });
