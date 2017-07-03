@@ -57,17 +57,12 @@ keystone.set('routes', require('./routes'));
 //Cloudinary config
 
 
-cloudinary.config({
-  cloud_name: 'sample',
-  api_key: '726856275187511',
-  api_secret: 'IVP8UuvsbIrU1UOx7v-SxT_s2fU'
-});
 
 
 keystone.init({
 
     'cloudinary config': 'cloudinary://726856275187511:IVP8UuvsbIrU1UOx7v-SxT_s2fU@earo/',
-    
+
 });
 
 
