@@ -100,3 +100,9 @@ conn.on('error', console.error.bind(console, 'connection error:'));
 conn.once('open', function() {
   // Wait for the database connection to establish, then start the app.
 });
+
+cloudinary.config({ 
+  cloud_name: 'sample',
+  api_key: '726856275187511',
+  api_secret: 'IVP8UuvsbIrU1UOx7v-SxT_s2fU'
+});
