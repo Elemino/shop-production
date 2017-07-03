@@ -80,14 +80,23 @@ keystone.set('nav', {
 
 // Start Keystone to connect to your database and initialise the web server
 
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://<smf>:<mlab123E>@ds029466.mlab.com:29466/smf');
-
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  // we're connected!
-});
 
 keystone.start();
+
+
+var mongoose = require('mongoose');
+
+
+var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+                replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };
+
+var mongodbUri = 'mongodb://<smf>:<mlab123E>@ds029466.mlab.com:29466/smf';
+
+mongoose.connect(mongodbUri, options);
+var conn = mongoose.connection;
+
+conn.on('error', console.error.bind(console, 'connection error:'));
+
+conn.once('open', function() {
+  // Wait for the database connection to establish, then start the app.
+});
