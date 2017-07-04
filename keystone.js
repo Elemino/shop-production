@@ -27,7 +27,7 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User'
-	'cookie secret': '=Hw1WfV6XlGW(w~K8=&5r%U2]EZ'
+	'cookie secret': 'mysecretcookiestring'
 
 });
 
