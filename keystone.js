@@ -27,7 +27,7 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User'
-	'cookie secret': 'mysecretcookiestring'
+	'cookie secret': process.env.COOKIE_SECRET
 
 });
 
