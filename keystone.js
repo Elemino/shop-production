@@ -56,10 +56,6 @@ keystone.set('routes', require('./routes'));
 
 
 //Cloudinary config
-
-
-
-
 keystone.init({
 
     'cloudinary config': 'cloudinary://726856275187511:IVP8UuvsbIrU1UOx7v-SxT_s2fU@earo/',
@@ -117,3 +113,9 @@ conn.on('error', console.error.bind(console, 'connection error:'));
 conn.once('open', function() {
   // Wait for the database connection to establish, then start the app.
 });
+
+if (keystone.get('env') == 'production'){
+    keystone.set('cloudinary config', process.env.CLOUDINARY_URL);
+    keystone.set('cookie secret', process.env.COOKIE_SECRET);
+    keystone.set('mandrill api key', process.env.MANDRILL_API_KEY);
+}
