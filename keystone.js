@@ -1,4 +1,4 @@
-s// Simulate config options from your production environment by
+// Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
 require('dotenv').config();
 
@@ -25,7 +25,7 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-	'cookie secret': process.env.COOKIE_SECRET,
+	'cookie secret': process.env.COOKIE_SECRET
 
 });
 
