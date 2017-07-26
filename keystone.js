@@ -24,8 +24,8 @@ keystone.init({
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'User'
-	'cookie secret': process.env.COOKIE_SECRET,
+	'user model': 'User',
+	'cookie secret': process.env.COOKIE_SECRET
 
 });
 
