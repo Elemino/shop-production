@@ -103,7 +103,7 @@ var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 
 
 var mongodbUri = 'mongodb://<smf>:<mlab123E>@ds029466.mlab.com:29466/smf';
 
-mongoose.Createconnect(mongodbUri, options);
+mongoose.Createconnection(mongodbUri, options);
 var conn = mongoose.connection;
 
 conn.on('error', console.error.bind(console, 'connection error:'));
