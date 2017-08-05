@@ -14,7 +14,6 @@ keystone.init({
 	'mongo': process.env.MONGOLAB_URI || 'mongodb://<smf>:<mlab123E>@ds029466.mlab.com:29466/smf',
 	'name': 'Earo',
 	'brand': 'Earo',
-
 	'sass': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
@@ -95,22 +94,44 @@ keystone.set('nav', {
 keystone.start();
 
 
-var mongoose = require('mongoose');
+// Bring Mongoose into the app
+var mongoose = require( 'mongoose' );
 
+// Build the connection string
+var dbURI = 'mongodb://<smf>:<mlab123E>@ds029466.mlab.com:29466/smf'; 
 
-var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
-                replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };
+// Create the database connection
+mongoose.connect(dbURI);
 
-var mongodbUri = 'mongodb://<smf>:<mlab123E>@ds029466.mlab.com:29466/smf';
-
-mongoose.createconnection(mongodbUri, options);
-var conn = mongoose.connection;
-
-conn.on('error', console.error.bind(console, 'connection error:'));
-
-conn.once('open', function() {
-  // Wait for the database connection to establish, then start the app.
+// CONNECTION EVENTS
+// When successfully connected
+mongoose.connection.on('connected', function () {
+  console.log('Mongoose default connection open to ' + dbURI);
 });
+
+// If the connection throws an error
+mongoose.connection.on('error',function (err) {
+  console.log('Mongoose default connection error: ' + err);
+});
+
+// When the connection is disconnected
+mongoose.connection.on('disconnected', function () {
+  console.log('Mongoose default connection disconnected');
+});
+
+// If the Node process ends, close the Mongoose connection
+process.on('SIGINT', function() {
+  mongoose.connection.close(function () {
+    console.log('Mongoose default connection disconnected through app termination');
+    process.exit(0);
+  });
+});
+
+// BRING IN YOUR SCHEMAS & MODELS // For example
+require('./../model/team');
+
+
+mongoose.connect(mongodbUri, options);
 
 if (keystone.get('env') == 'production'){
     keystone.set('cloudinary config', process.env.CLOUDINARY_URL);
