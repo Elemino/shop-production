@@ -98,7 +98,7 @@ keystone.start();
 var mongoose = require( 'mongoose' );
 
 // Build the connection string
-var dbURI = 'mongodb://<smf>:<mlab123E>@ds029466.mlab.com:29466/smf'; 
+var dbURI = 'mongodb://<smf>:<mlab123E>@ds029466.mlab.com:29466/smf';
 
 // Create the database connection
 mongoose.connect(dbURI);
@@ -132,9 +132,3 @@ require('./../model/team');
 
 
 mongoose.connect(mongodbUri, options);
-
-if (keystone.get('env') == 'production'){
-    keystone.set('cloudinary config', process.env.CLOUDINARY_URL);
-    keystone.set('cookie secret', process.env.COOKIE_SECRET);
-    keystone.set('mandrill api key', process.env.MANDRILL_API_KEY);
-}
