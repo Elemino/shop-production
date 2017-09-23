@@ -103,7 +103,7 @@ mongoose.connect('mongodb://<smf>:<mlab123E>@ds029466.mlab.com:29466/smf');
 // CONNECTION EVENTS
 // When successfully connected
 mongoose.connection.on('connected', function () {
-  console.log('Mongoose default connection open to ' + dbURI);
+  console.log('Mongoose default connection open to ');
 });
 
 // If the connection throws an error
@@ -126,6 +126,3 @@ process.on('SIGINT', function() {
 
 // BRING IN YOUR SCHEMAS & MODELS // For example
 require('./../model/team');
-
-
-mongoose.connect(mongodbUri, options);
