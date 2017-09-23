@@ -97,11 +97,8 @@ keystone.start();
 // Bring Mongoose into the app
 var mongoose = require( 'mongoose' );
 
-// Build the connection string
-var dbURI = 'mongodb://<smf>:<mlab123E>@ds029466.mlab.com:29466/smf';
-
 // Create the database connection
-mongoose.connect(dbURI);
+mongoose.connect('mongodb://<smf>:<mlab123E>@ds029466.mlab.com:29466/smf');
 
 // CONNECTION EVENTS
 // When successfully connected
