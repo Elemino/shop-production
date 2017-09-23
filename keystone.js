@@ -97,24 +97,23 @@ keystone.start();
 // Bring Mongoose into the app
 var mongoose = require( 'mongoose' );
 
-// Create the database connection
+
+
 mongoose.connect('mongodb://<smf>:<mlab123E>@ds029466.mlab.com:29466/smf');
-
-// CONNECTION EVENTS
-// When successfully connected
-mongoose.connection.on('connected', function () {
-  console.log('Mongoose default connection open to ');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+  console.log("h");
 });
 
-// If the connection throws an error
-mongoose.connection.on('error',function (err) {
-  console.log('Mongoose default connection error: ' + err);
-});
+exports.test = function(req,res) {
+  res.render('test');
+};
 
-// When the connection is disconnected
-mongoose.connection.on('disconnected', function () {
-  console.log('Mongoose default connection disconnected');
-});
+
+
+
+
 
 // If the Node process ends, close the Mongoose connection
 process.on('SIGINT', function() {
@@ -123,6 +122,14 @@ process.on('SIGINT', function() {
     process.exit(0);
   });
 });
+
+
+
+
+
+
+
+
 
 // BRING IN YOUR SCHEMAS & MODELS // For example
 require('./../model/team');
