@@ -11,7 +11,7 @@ var keystone = require('keystone')
 // and documentation.
 
 keystone.init({
-	'mongo': process.env.MONGOLAB_URI || 'mongodb://<smf>:<mlab123E>@ds029466.mlab.com:29466/smf',
+
 	'name': 'Earo',
 	'brand': 'Earo',
 	'sass': 'public',
