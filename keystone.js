@@ -100,6 +100,8 @@ var mongoose = require ("mongoose"); // The reason for this demo.
 
 // Here we find an appropriate database to connect to, defaulting to
 // localhost if we don't find one.
+
+
 var uristring =
 process.env.MONGOLAB_URI ||
 process.env.MONGOHQ_URL ||
@@ -121,6 +123,7 @@ mongoose.createConnection(uristring, function (err, res) {
 
 
 
+
 // If the Node process ends, close the Mongoose connection
 process.on('SIGINT', function() {
   mongoose.connection.close(function () {
@@ -128,14 +131,3 @@ process.on('SIGINT', function() {
     process.exit(0);
   });
 });
-
-
-
-
-
-
-
-
-
-// BRING IN YOUR SCHEMAS & MODELS // For example
-require('./../model/team');
