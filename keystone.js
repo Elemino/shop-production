@@ -97,9 +97,7 @@ var mongoose = require ("mongoose");
 
 
 var uristring =
-process.env.MONGOLAB_URI ||
-process.env.MONGOHQ_URL ||
-'mongodb://smf2:mlab123E@ds029466.mlab.com:29466/smf';
+process.env.MONGOLAB_URI || 'mongodb://smf2:mlab123E@ds029466.mlab.com:29466/smf';
 
 
 
