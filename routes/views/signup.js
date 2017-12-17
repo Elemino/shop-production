@@ -16,5 +16,11 @@ exports = module.exports = function(req, res) {
         isAdmin: fasle
       });
 
+  var updater = newUser.getUpdateHandler (req);
+  var my cart = req.session.cat;
+  updater.process(req, body, {
+    fields: 'email'
+  })
+
 
 }
