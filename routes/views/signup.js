@@ -20,6 +20,8 @@ exports = module.exports = function(req, res) {
   var my cart = req.session.cat;
   updater.process(req, body, {
     fields: 'email'
+    flashErrors: true,
+    logErrors: true
   })
 
 
