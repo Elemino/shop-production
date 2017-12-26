@@ -15,7 +15,7 @@ exports = module.exports = function(req, res) {
 
         var newOrder = Order.model({customer: req.user.id,product: mycart_pro_ids});
         updater = newOrder.getUpdateHandler(req, res, {
-            errorMessage: 'Your order encoutered an error'
+            errorMessage: 'Your order encountered an error'
           });
 
           updater.process(req, body, {
@@ -31,7 +31,7 @@ exports = module.exports = function(req, res) {
               }
 
           });
-    }else{
+    } else{
         res.redirect('/')
     }
 };
