@@ -51,12 +51,12 @@ exports = module.exports = function(req, res) {
                         customer: req.user.id,
                         products: mycart_pro_ids,
 
-                    });
-                   }
-                  }
-                 }
-                }
-               }
-              }
+              });
              }
             }
+           }
+          }
+         }
+        }
+       }
+      }
