@@ -43,6 +43,8 @@ exports = module.exports = function(app) {
 	app.get('/add_to_cart/', routes.views.add_to_cart);
 	app.get('/mycart', routes.views.mycart);
 	app.get('/purchase', routes.views.purchse);
+	app.get('/signup', routes.views.signup);
+
 
 
 
