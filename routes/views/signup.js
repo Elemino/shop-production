@@ -30,7 +30,6 @@ exports = module.exports = function(req, res) {
   }, function(err,result) {
 
       if (err) {
-
           console.log(err);
       } else {
         keystone.session.signinWithUser (newUser, req, res, function (){
@@ -52,6 +51,11 @@ exports = module.exports = function(req, res) {
                         products: mycart_pro_ids,
 
               });
+
+
+
+
+
              }
             }
            }
