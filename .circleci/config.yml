@@ -2,7 +2,7 @@ version: 2
 jobs:
   build: working_directory: ~/tmp
   docker:
-    -image: circle/node:7
+    -image: circleci/node:7
     steps:
       -checkout
       -run: npm install
