@@ -1,11 +1,9 @@
-workflows:
-  version: 2
-    jobs:
-
-      working_directory: ~/tmp
-      docker:
-        - image: circleci/node:7
-      steps:
-        - checkout
-        - run: npm install
-        - run: npm test
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:7
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm test
