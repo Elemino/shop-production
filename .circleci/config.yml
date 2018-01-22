@@ -1,7 +1,7 @@
 workflows:
   version: 2
     jobs:
-    build:
+
       working_directory: ~/tmp
       docker:
         - image: circleci/node:7
