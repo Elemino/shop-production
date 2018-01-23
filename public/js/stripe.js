@@ -24,7 +24,7 @@ var onReceiveToken = function(token, args) {
             stripeToken: token.id
         },
         success: function(data) {
-           console.log('Returns the HTML content of checkout.jade');
+           console.log('Returns contents of cart.pug');
         }
     })
 };
