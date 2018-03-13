@@ -1,6 +1,6 @@
-# Keystone.JS online store to support my hardware and modeling projects.
+# Keystone.JS online store
 
-The shop contains the ability to add to a shopping cart, products lists and id's and aims to incorporate full scale stripe integration.  
+Created to support my hardware and modeling projects. The shop contains the ability to add to a shopping cart, products lists and id's and aims to incorporate full scale stripe integration.  
 
 
 
