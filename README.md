@@ -1,9 +1,14 @@
-# Online store built with Keystone JS to support my hardware projects.
+# Keystone.JS online store to support my hardware and modeling projects.
 
-The project is still in development stages as of 15/1/18. This app contains a shopping cart along with products lists and id's and stripe integration.  
+The shop contains the ability to add to a shopping cart, products lists and id's and aims to incorporate full scale stripe integration.  
 
 
 
 Instructions:
 
-Make sure you have mongodb, node and yeoman and all the dependencies installed, and run 'node keystone' at root directory.
+1 Make sure you have mongodb, node and yeoman plus all of the dependencies installed. 
+
+2 Run 'node keystone' at root directory.
+
+
+**This project is back in development as of 12/2/18**
