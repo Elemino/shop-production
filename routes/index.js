@@ -32,7 +32,7 @@ var routes = {
 };
 
 // Setup Route Bindings
-exports = module.exports = function(app) {
+exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
 	app.get('/products', routes.views.products);
@@ -42,12 +42,8 @@ exports = module.exports = function(app) {
 	app.get('/order/:order_id', routes.views.order);
 	app.get('/add_to_cart/', routes.views.add_to_cart);
 	app.get('/mycart', routes.views.mycart);
-	app.get('/purchase', routes.views.purchse);
+	app.get('/purchase', routes.views.purchase);
 	app.get('/signup', routes.views.signup);
-
-
-
-
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
