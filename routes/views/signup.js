@@ -1,6 +1,6 @@
 var keystone = require('keystone');
 var User = keystone.list('users');
-var Order - keystone.list('orders');
+var Order = keystone.list('orders');
 exports = module.exports = function(req, res) {
 
   var view = new keystone.View(req, res);
@@ -8,7 +8,7 @@ exports = module.exports = function(req, res) {
 
 
   //locals
-  console.log("...")+JSON.stringify(req.body));
+  console.log("...")+JSON.stringify(req.body);
 
 
   console.log(req.body.first+" "+req.body.last);
@@ -22,9 +22,9 @@ exports = module.exports = function(req, res) {
       });
 
   var updater = newUser.getUpdateHandler (req);
-  var my cart = req.session.cat;
+  var mycart = req.session.cat;
   updater.process(req, body, {
-      fields: 'email'
+      fields: 'email',
       flashErrors: true,
       logErrors: true
   }, function(err,result) {
@@ -34,7 +34,7 @@ exports = module.exports = function(req, res) {
       } else {
         keystone.session.signinWithUser (newUser, req, res, function (){
           console.log("signinWithUser func");
-          keystone.callHook(newUser, 'post:signin' function (err){
+          keystone.callHook(newUser, 'post:signin', function (err){
               if (err) {
                 console.log(err);
               } else {
@@ -58,9 +58,9 @@ exports = module.exports = function(req, res) {
 
              }
             }
-           }
-          }
+           })
+          })
          }
-        }
+        })
        }
-      }
+      

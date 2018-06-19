@@ -1,5 +1,5 @@
 var keystone = require('keystone');                                                                                                                   
-var stripe = require('stripe')("STRIPE_KEY");
+//var stripe = require('stripe')("STRIPE_KEY");
 
 exports = module.exports = function (req, res) {
 
@@ -21,7 +21,7 @@ stripe.customers.create({
 
 });
 
-next()
+next();
 });
 // Render the view
 view.render('checkout');
