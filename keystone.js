@@ -1,3 +1,12 @@
+const requireSoSlow = require('require-so-slow');
+
+// load stuff, run stuff.
+require('request');
+
+// Write a trace file at some point.
+requireSoSlow.write('require-trace.trace');
+
+
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
 require('dotenv').config();
