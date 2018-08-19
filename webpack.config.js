@@ -3,7 +3,7 @@ var path = require('path');
 
 module.exports = {
  
-  mode: 'development',
+ mode: 'development',
 	
 	entry: [
 		'./client/index.jsx',

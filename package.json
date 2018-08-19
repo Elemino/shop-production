@@ -2,6 +2,7 @@
   "name": "earo",
   "version": "0.0.0",
   "private": true,
+  "main": "keystone.js",
   "dependencies": {
     "async": "2.1.4",
     "dotenv": "4.0.0",
@@ -33,6 +34,8 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "node keystone.js"
+    "start": "node keystone.js",
+    "test": "test"
+
   }
 }
