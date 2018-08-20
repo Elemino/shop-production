@@ -6,7 +6,7 @@ module.exports = {
  mode: 'development',
 	
 	entry: [
-		'/client/index.jsx',
+		'./client/index.jsx',
 	],
 	
 	output: {
