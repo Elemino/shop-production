@@ -126,11 +126,3 @@ process.on('SIGINT', function () {
 		process.exit(0);
 	});
 });
-
-
-// Next app 
-const next = require('next');
-const dev = process.env.NODE_ENV !== 'production';
-const app = next({
-	dev
-});
