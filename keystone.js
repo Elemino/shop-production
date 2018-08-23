@@ -13,7 +13,7 @@ require('dotenv').config();
 
 // Require keystone
 
-var keystone = require('keystone')
+var keystone = require('keystone');
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -33,7 +33,7 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-	'cookie secret': process.env.COOKIE_SECRET
+	'cookie secret': process.env.COOKIE_SECRET,
 
 });
 
@@ -41,8 +41,8 @@ keystone.init({
 keystone.import('models');
 
 
-    var User = keystone.list('User');
-    new User.model().save();
+var User = keystone.list('User');
+new User.model().save();
 
 // Setup common locals for your templates. The following are required for the
 // bundled templates and layouts. Any runtime locals (that should be set uniquely
@@ -58,13 +58,10 @@ keystone.set('locals', {
 keystone.set('routes', require('./routes'));
 
 
-
-
-
-//Cloudinary config
+// Cloudinary config
 keystone.init({
 
-    'cloudinary config': 'cloudinary://726856275187511:IVP8UuvsbIrU1UOx7v-SxT_s2fU@earo/',
+	'cloudinary config': 'cloudinary://726856275187511:IVP8UuvsbIrU1UOx7v-SxT_s2fU@earo/',
 
 });
 
@@ -102,31 +99,35 @@ keystone.set('nav', {
 
 keystone.start();
 
-var mongoose = require ("mongoose");
+var mongoose = require('mongoose');
 
 
-var uristring =
-process.env.MONGOLAB_URI || 'mongodb://smf2:mlab123E@ds029466.mlab.com:29466/smf';
-
+var uristring = process.env.MONGOLAB_URI || 'mongodb://smf2:mlab123E@ds029466.mlab.com:29466/smf';
 
 
 // Makes connection asynchronously.  Mongoose will queue up database
 // operations and release them when the connection is complete.
 mongoose.createConnection(uristring, function (err, res) {
 	if (err) {
-	console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+		console.log('ERROR connecting to: ' + uristring + '. ' + err);
 	} else {
-	console.log ('Succeeded connected to: ' + uristring);
+		console.log('Succeeded connected to: ' + uristring);
 	}
 });
 
 
-
-
 // If the Node process ends, close the Mongoose connection
-process.on('SIGINT', function() {
-  mongoose.connection.close(function () {
-    console.log('Mongoose default connection disconnected through app termination');
-    process.exit(0);
-  });
+process.on('SIGINT', function () {
+	mongoose.connection.close(function () {
+		console.log('Mongoose default connection disconnected through app termination');
+		process.exit(0);
+	});
+});
+
+
+// Next app
+const next = require('next');
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({
+	dev,
 });
