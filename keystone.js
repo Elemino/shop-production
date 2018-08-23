@@ -105,7 +105,6 @@ var mongoose = require('mongoose');
 var uristring = process.env.MONGOLAB_URI || 'mongodb://smf2:mlab123E@ds029466.mlab.com:29466/smf';
 
 
-
 // Makes connection asynchronously.  Mongoose will queue up database
 // operations and release them when the connection is complete.
 mongoose.createConnection(uristring, function (err, res) {
@@ -115,8 +114,6 @@ mongoose.createConnection(uristring, function (err, res) {
 		console.log('Succeeded connected to: ' + uristring);
 	}
 });
-
-
 
 
 // If the Node process ends, close the Mongoose connection
