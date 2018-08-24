@@ -11,7 +11,7 @@ exports = module.exports = function (req, res) {
 	locals.section = 'mycart';
 	locals.title = 'mycart';
 
-  locals.products = req.session.cart;
+	locals.products = req.session.cart;
 
 
 	// Render the view

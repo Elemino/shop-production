@@ -1,38 +1,41 @@
-var keystone = require ('keystone');
+var keystone = require('keystone');
 var Order = keystone.list('orders');
 
-exports = module.exports = function(req, res) {
+exports = module.exports = function (req, res) {
 
-    var view = new keystone.View(req, res);
-    var locals = res.locals;
+	var view = new keystone.View(req, res);
+	var locals = res.locals;
 
-    if(req.session.cart !=undefined){
-        mycart_pro_ids = [];
-        req.session.cart.forEach( function (product){
+	if (req.session.cart != undefined) {
+		mycart_pro_ids = [];
+		req.session.cart.forEach(function (product) {
 
-            mycart_pro_ids.push(product._id);
-        });
+			mycart_pro_ids.push(product._id);
+		});
 
-        var newOrder = Order.model({customer: req.user.id,product: mycart_pro_ids});
-        updater = newOrder.getUpdateHandler(req, res, {
-            errorMessage: 'Your order encountered an error'
-        });
+		var newOrder = Order.model({
+			customer: req.user.id,
+			product: mycart_pro_ids
+		});
+		updater = newOrder.getUpdateHandler(req, res, {
+			errorMessage: 'Your order encountered an error',
+		});
 
-        updater.process(req, body, {
-            flashErrors: true,
-            logErrors: true,
-        }, function(err) {
-            if (err) {
+		updater.process(req, body, {
+			flashErrors: true,
+			logErrors: true,
+		}, function (err) {
+			if (err) {
 
-            } else {
+			} else {
 
-                req.session.cart=[];
-                res.redirect('/myorders')
-            }
+				req.session.cart = [];
+				res.redirect('/myorders');
+			}
 
-        });
-    } else {
+		});
+	} else {
 
-        res.redirect('/')
-    }
+		res.redirect('/');
+	}
 };
