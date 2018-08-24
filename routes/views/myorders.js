@@ -4,11 +4,11 @@ var Order = keystone.list('Order');
 exports = module.exports = function (req, res) {
 
 	var view = new keystone.View(req, res);
-  if(req.user == undefined){
-    view.render("errors/404");
-    return;
-  }
-  console.log("loggedin user = "+req.user.mail);
+	if (req.user == undefined) {
+		view.render('errors/404');
+		return;
+	}
+	console.log('loggedin user = ' + req.user.mail);
 
 
 	var locals = res.locals;
@@ -19,22 +19,19 @@ exports = module.exports = function (req, res) {
 	locals.title = 'Myorders';
 
 
-	view.on('init', function(next) {
+	view.on('init', function (next) {
 		Order.paginate({
-			page:req.query.page||1,
-			perPage:2,
-			maxPage:10
-		})
-    .where('customer', req.user.id)
-    .sort('-publishedDate')
-    .exec(function(err,res){
-			locals.Orders = res;
-			next(err);
-		});
-	})
-
-
-
+				page: req.query.page || 1,
+				perPage: 2,
+				maxPage: 10,
+			})
+			.where('customer', req.user.id)
+			.sort('-publishedDate')
+			.exec(function (err, res) {
+				locals.Orders = res;
+				next(err);
+			});
+	});
 
 
 	// Render the view

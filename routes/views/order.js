@@ -8,15 +8,15 @@ exports = module.exports = function (req, res) {
 	var locals = res.locals;
 
 
-	view.on('init', function(next) {
-    var q = keystone.list('Order').model.findById(req.params.product_id);
+	view.on('init', function (next) {
+		var q = keystone.list('Order').model.findById(req.params.product_id);
 
-    q.exec(function(err, result) {
+		q.exec(function (err, result) {
 
-      locals.product = result;
-      next(err);
-    });
-});
-  view.render('order')
+			locals.product = result;
+			next(err);
+		});
+	});
+	view.render('order');
 
 };

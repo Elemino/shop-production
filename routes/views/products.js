@@ -12,20 +12,17 @@ exports = module.exports = function (req, res) {
 	locals.title = 'products';
 
 
-	view.on('init', function(next) {
+	view.on('init', function (next) {
 
-		  Product.paginate({
-			    page:req.query.page||1,
-			    perPage:3,
-			    maxPage:10
-	  	}).exec(function(err,res){
-			    locals.products = res;
-			    next(err);
-		  });
-	})
-
-
-
+		Product.paginate({
+			page: req.query.page || 1,
+			perPage: 3,
+			maxPage: 10,
+		}).exec(function (err, res) {
+			locals.products = res;
+			next(err);
+		});
+	});
 
 
 	// Render the view
