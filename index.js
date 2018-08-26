@@ -1,12 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 const App = () => {
 	return (
 		<div>
 			<h1> Parts list</h1>
 
-			<img style={{ width: "300px", height: "300px" }} src="parts.jpg" />
+			<img style={{ width: '300px', height: '300px' }} src="parts.jpg" />
 			<h2>Item List</h2>
 			<ul>
 				<li>First component</li>
@@ -19,4 +19,4 @@ const App = () => {
 	);
 };
 
-ReactDOM.render(<App />, document.querySelector(".react-container"));
+ReactDOM.render(<App />, document.querySelector('.react-container'));
