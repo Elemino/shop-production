@@ -9,7 +9,7 @@ class Counter extends Component {
 		return (
 			<div>
 				<span className="Badge badge-primary m-2">{this.format.Count()}</span>
-				<button>Increment</button>
+				<button className="btn btn-secondary btn-sm">Increment</button>
 			</div>
 		);
 	}
