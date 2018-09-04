@@ -40,6 +40,5 @@
     "lint": "eslint .",
     "start": "node keystone.js",
     "compile": "webpack --config webpack.config.js"
-
   }
 }
