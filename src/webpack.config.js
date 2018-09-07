@@ -6,7 +6,7 @@ module.exports = {
 	mode: 'development',
 
 	entry: [
-		'./index.jsx',
+		'./index.js',
 	],
 
 	output: {
