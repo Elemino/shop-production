@@ -6,13 +6,13 @@ module.exports = {
 	mode: 'development',
 
 	entry: [
-		'./index.js',
+		'./src/index.js',
 	],
 
 	output: {
-		path: path.join(__dirname, '/server/public/js/'),
+		path: path.join(__dirname, './public/js/'),
 		filename: 'bundle.js',
-		publicPath: 'server/public/js/',
+		publicPath: './public/js/',
 	},
 
 	module: {
