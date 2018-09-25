@@ -123,3 +123,6 @@ process.on('SIGINT', function () {
 		process.exit(0);
 	});
 });
+
+
+keystone.set('cors allow origin', true);

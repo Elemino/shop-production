@@ -49,3 +49,5 @@ exports = module.exports = function (app) {
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 
 };
+
+app.all('/api*', keystone.middleware.cors);
