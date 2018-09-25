@@ -50,4 +50,4 @@ exports = module.exports = function (app) {
 
 };
 
-app.all('/api*', keystone.middleware.cors);
+    app.all('/api*', keystone.middleware.cors);

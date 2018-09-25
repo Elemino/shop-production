@@ -84,5 +84,3 @@ exports.requireUser = function (req, res, next) {
 		next();
 	}
 };
-
-app.all('/api*', keystone.middleware.cors);
