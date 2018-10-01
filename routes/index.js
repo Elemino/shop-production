@@ -44,10 +44,12 @@ exports = module.exports = function (app) {
 	app.get('/mycart', routes.views.mycart);
 	app.get('/purchase', routes.views.purchase);
 	app.get('/signup', routes.views.signup);
+	app.all('/', keystone.middleware.cors);
+
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 
 };
 
-    app.all('/api*', keystone.middleware.cors);
+    
