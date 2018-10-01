@@ -41,6 +41,6 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node keystone.js",
-    "build": "webpack src/index.js dist/bundle.js"
+    "build": "webpack src/index.js public/js/bundle.js"
   }
 }
