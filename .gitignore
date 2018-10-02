@@ -33,3 +33,7 @@ node_modules
 
 # Next build files
 .next
+
+# Require-test
+
+require-trace.trace
