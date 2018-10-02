@@ -126,3 +126,7 @@ process.on('SIGINT', function () {
 
 
 keystone.set('cors allow origin', true);
+
+const next = require('next'); 
+const dev = process.env.NODE_ENV !== 'production'; 
+const app = next({ dev });
