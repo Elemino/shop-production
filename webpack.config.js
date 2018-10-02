@@ -12,12 +12,12 @@ module.exports = {
 	mode: 'development',
 
 	entry: [
-		'./src/index.js',
+		'./src/client/index.js',
 	],
 
 	output: {
 		path: path.join(__dirname, './public/js/'),
-		filename: './dist/bundle.js',
+		filename: 'bundle.js',
 		publicPath: './public/js/',
 	},
 
