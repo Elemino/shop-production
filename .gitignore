@@ -1,3 +1,5 @@
+.next
+.next
 logs
 *.log
 pids
@@ -11,5 +13,4 @@ node_modules
 .env
 .DS_Store
 .vscode
-.next
 require-trace.trace
