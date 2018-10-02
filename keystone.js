@@ -83,8 +83,21 @@ keystone.set('email locals', {
 	},
 });
 
+
+const next = require('next');
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({ dev });
+
+
+app.prepare()
+	.then(() => {
+		
 // Load your project's email test routes
 keystone.set('email tests', require('./routes/emails'));
+
+// Load your project's Routes
+keystone.set('routes', require('./routes'));
+
 
 
 // Configure the navigation bar in Keystone's Admin UI
@@ -98,9 +111,9 @@ keystone.set('nav', {
 
 
 keystone.start();
+});
 
 var mongoose = require('mongoose');
-
 
 var uristring = process.env.MONGOLAB_URI || 'mongodb://smf2:mlab123E@ds029466.mlab.com:29466/smf';
 
@@ -127,6 +140,3 @@ process.on('SIGINT', function () {
 
 keystone.set('cors allow origin', true);
 
-const next = require('next'); 
-const dev = process.env.NODE_ENV !== 'production'; 
-const app = next({ dev });
