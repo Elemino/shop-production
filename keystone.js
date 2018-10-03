@@ -1,23 +1,12 @@
 const requireSoSlow = require('require-so-slow');
 
-// load stuff, run stuff.
 require('request');
 
-// Write a trace file at some point.
 requireSoSlow.write('require-trace.trace');
 
 
-// Simulate config options from your production environment by
-// customising the .env file in your project's root folder.
-require('dotenv').config();
-
-// Require keystone
-
 var keystone = require('keystone');
 
-// Initialise Keystone with your project's configuration.
-// See http://keystonejs.com/guide/config for available options
-// and documentation.
 
 keystone.init({
 
@@ -37,7 +26,6 @@ keystone.init({
 
 });
 
-// Load your project's Models
 keystone.import('models');
 
 
@@ -54,11 +42,9 @@ keystone.set('locals', {
 	editable: keystone.content.editable,
 });
 
-// Load your project's Routes
 keystone.set('routes', require('./routes'));
 
 
-// Cloudinary config
 keystone.init({
 
 	'cloudinary config': 'cloudinary://726856275187511:IVP8UuvsbIrU1UOx7v-SxT_s2fU@earo/',
@@ -66,8 +52,6 @@ keystone.init({
 });
 
 
-// Setup common locals for your emails. The following are required by Keystone's
-// default email templates, you may remove them if you're using your own.
 keystone.set('email locals', {
 	logo_src: '/images/logo-email.gif',
 	logo_width: 194,
@@ -92,15 +76,10 @@ const app = next({ dev });
 app.prepare()
 	.then(() => {
 		
-// Load your project's email test routes
 keystone.set('email tests', require('./routes/emails'));
 
-// Load your project's Routes
 keystone.set('routes', require('./routes'));
 
-
-
-// Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
 	galleries: 'galleries',
 	enquiries: 'enquiries',
