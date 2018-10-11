@@ -39,10 +39,11 @@
     "webpack-cli": "^3.1.2"
   },
   "scripts": {
+    "test": "jest",
     "dev": "next",
     "lint": "eslint .",
     "start": "next start node keystone.js",
-    "build": "next build webpack src/index.js public/js/bundle.js",
-    "test": "jest"
+    "build": "next build webpack src/index.js public/js/bundle.js"
+    
   }
 }
