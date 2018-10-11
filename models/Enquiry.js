@@ -47,10 +47,10 @@ Enquiry.schema.methods.sendNotificationEmail = function (callback) {
 		}).send({
 			to: admins,
 			from: {
-				name: 'Smash Muff Filters',
-				email: 'contact@smf.com',
+				name: 'Earo',
+				email: 'contact@earo.com',
 			},
-			subject: 'New Enquiry for Smash Muff Filters',
+			subject: 'New Earo Enquiry',
 			enquiry: enquiry,
 		}, callback);
 	});
