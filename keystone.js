@@ -1,11 +1,13 @@
+var keystone = require('keystone');
+var mongoose = require('mongoose');
+
+const next = require('next');
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({ dev });
 const requireSoSlow = require('require-so-slow');
 
 require('request');
-
 requireSoSlow.write('require-trace.trace');
-
-
-var keystone = require('keystone');
 
 
 keystone.init({
@@ -23,8 +25,16 @@ keystone.init({
 	'auth': true,
 	'user model': 'User',
 	'cookie secret': process.env.COOKIE_SECRET,
+	'cloudinary config': 'cloudinary://726856275187511:IVP8UuvsbIrU1UOx7v-SxT_s2fU@earo/'
+
 
 });
+
+
+
+
+
+
 
 keystone.import('models');
 
@@ -35,6 +45,7 @@ new User.model().save();
 // Setup common locals for your templates. The following are required for the
 // bundled templates and layouts. Any runtime locals (that should be set uniquely
 // for each request) should be added to ./routes/middleware.js
+
 keystone.set('locals', {
 	_: require('lodash'),
 	env: keystone.get('env'),
@@ -43,14 +54,6 @@ keystone.set('locals', {
 });
 
 keystone.set('routes', require('./routes'));
-
-
-keystone.init({
-
-	'cloudinary config': 'cloudinary://726856275187511:IVP8UuvsbIrU1UOx7v-SxT_s2fU@earo/',
-
-});
-
 
 keystone.set('email locals', {
 	logo_src: '/images/logo-email.gif',
@@ -67,10 +70,9 @@ keystone.set('email locals', {
 	},
 });
 
+keystone.set('cors allow origin', true);
 
-const next = require('next');
-const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
+
 
 
 app.prepare()
@@ -86,19 +88,22 @@ keystone.set('nav', {
 	users: 'users',
 });
 
+
+
 // Start Keystone to connect to your database and initialise the web server
+
 
 
 keystone.start();
 });
 
-var mongoose = require('mongoose');
-
-var uristring = process.env.MONGOLAB_URI || 'mongodb://smf2:mlab123E@ds029466.mlab.com:29466/smf';
 
 
 // Makes connection asynchronously.  Mongoose will queue up database
 // operations and release them when the connection is complete.
+
+var uristring = process.env.MONGOLAB_URI || 'mongodb://smf2:mlab123E@ds029466.mlab.com:29466/smf';
+
 mongoose.createConnection(uristring, function (err, res) {
 	if (err) {
 		console.log('ERROR connecting to: ' + uristring + '. ' + err);
@@ -111,11 +116,12 @@ mongoose.createConnection(uristring, function (err, res) {
 // If the Node process ends, close the Mongoose connection
 process.on('SIGINT', function () {
 	mongoose.connection.close(function () {
+		
 		console.log('Mongoose default connection disconnected through app termination');
 		process.exit(0);
 	});
 });
 
 
-keystone.set('cors allow origin', true);
+
 
