@@ -32,7 +32,7 @@ var routes = {
 };
 
 // Setup Route Bindings
-exports = module.exports = function (app) {
+exports = module.exports = (app) => {
 	// Views
 	app.get('/');
 	app.get('/products', routes.views.products);
