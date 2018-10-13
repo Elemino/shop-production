@@ -4,6 +4,8 @@ const next = require('next');
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 
+require('dotenv').config();
+
 var uristring = process.env.MONGOLAB_URI || 'mongodb://smf2:mlab123E@ds029466.mlab.com:29466/smf';
 
 mongoose.createConnection(uristring, function (err, res) {
