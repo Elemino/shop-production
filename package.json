@@ -9,7 +9,7 @@
     "hoek": "^5.0.4",
     "keystone": "^4.0.0",
     "lodash": "^4.17.11",
-    "mongoose": "^5.3.0",
+    "mongoose": "^5.3.3",
     "next": "^6.1.2",
     "node-sass": "^4.9.3",
     "node-sass-middleware": "0.11.0",
@@ -17,7 +17,7 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
-    "react-select": "^2.0.0",
+    "react-select": "^2.1.0",
     "redux": "^4.0.0",
     "require-so-slow": "^1.0.1",
     "underscore": "^1.9.1"
@@ -44,6 +44,5 @@
     "lint": "eslint .",
     "start": "next start node keystone.js",
     "build": "next build webpack src/index.js public/js/bundle.js"
-    
   }
 }

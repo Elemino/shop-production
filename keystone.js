@@ -84,6 +84,7 @@ keystone.start();
 var uristring = process.env.MONGOLAB_URI || 'mongodb://smf2:mlab123E@ds029466.mlab.com:29466/smf';
 
 mongoose.createConnection(uristring, function (err, res) {
+	useNewUrlParser: true; 
 	if (err) {
 		console.log('ERROR connecting to: ' + uristring + '. ' + err);
 	} else {
