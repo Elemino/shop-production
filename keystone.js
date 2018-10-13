@@ -16,6 +16,7 @@ keystone.init({
 	'auth': true,
 	'user model': 'User',
 	'cookie secret': process.env.COOKIE_SECRET,
+	'cloudinary config': 'cloudinary://726856275187511:IVP8UuvsbIrU1UOx7v-SxT_s2fU@earo/'
 
 });
 
@@ -33,14 +34,6 @@ keystone.set('locals', {
 });
 
 keystone.set('routes', require('./routes'));
-
-
-keystone.init({
-
-	'cloudinary config': 'cloudinary://726856275187511:IVP8UuvsbIrU1UOx7v-SxT_s2fU@earo/',
-
-});
-
 
 keystone.set('email locals', {
 	logo_src: '/images/logo-email.gif',
@@ -84,7 +77,7 @@ keystone.start();
 var uristring = process.env.MONGOLAB_URI || 'mongodb://smf2:mlab123E@ds029466.mlab.com:29466/smf';
 
 mongoose.createConnection(uristring, function (err, res) {
-	useNewUrlParser: true; 
+	useNewUrlParser: true;
 	if (err) {
 		console.log('ERROR connecting to: ' + uristring + '. ' + err);
 	} else {
