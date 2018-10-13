@@ -1,6 +1,28 @@
 var keystone = require('keystone');
 var mongoose = require('mongoose');
 
+
+mongoose.connect('mongodb://smf2:mlab123E@ds029466.mlab.com:29466/smf', { useNewUrlParser: true });
+
+var uristring = process.env.MONGOLAB_URI || 'mongodb://smf2:mlab123E@ds029466.mlab.com:29466/smf';
+
+mongoose.createConnection(uristring, function (err, res) {
+	
+	if (err) {
+		console.log('ERROR connecting to: ' + uristring + '. ' + err);
+	} else {
+		console.log('Succeeded connected to: ' + uristring);
+	}
+});
+
+process.on('SIGINT', function () {
+	mongoose.connection.close(function () {
+		console.log('Mongoose default connection disconnected through app termination');
+		process.exit(0);
+	});
+});
+
+
 keystone.init({
 
 	'name': 'Earo',
@@ -32,7 +54,7 @@ keystone.set('locals', {
 	utils: keystone.utils,
 	editable: keystone.content.editable,
 });
-
+keystone.set('cors allow origin', true);
 keystone.set('routes', require('./routes'));
 
 keystone.set('email locals', {
@@ -72,26 +94,3 @@ keystone.set('nav', {
 
 keystone.start();
 });
-
-
-var uristring = process.env.MONGOLAB_URI || 'mongodb://smf2:mlab123E@ds029466.mlab.com:29466/smf';
-
-mongoose.createConnection(uristring, function (err, res) {
-	useNewUrlParser: true;
-	if (err) {
-		console.log('ERROR connecting to: ' + uristring + '. ' + err);
-	} else {
-		console.log('Succeeded connected to: ' + uristring);
-	}
-});
-
-process.on('SIGINT', function () {
-	mongoose.connection.close(function () {
-		console.log('Mongoose default connection disconnected through app termination');
-		process.exit(0);
-	});
-});
-
-
-keystone.set('cors allow origin', true);
-
