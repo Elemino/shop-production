@@ -1,13 +1,12 @@
 var keystone = require('keystone');
 var mongoose = require('mongoose');
-
-
-mongoose.connect('mongodb://smf2:mlab123E@ds029466.mlab.com:29466/smf', { useNewUrlParser: true });
+const next = require('next');
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({ dev });
 
 var uristring = process.env.MONGOLAB_URI || 'mongodb://smf2:mlab123E@ds029466.mlab.com:29466/smf';
 
 mongoose.createConnection(uristring, function (err, res) {
-	
 	if (err) {
 		console.log('ERROR connecting to: ' + uristring + '. ' + err);
 	} else {
@@ -38,7 +37,7 @@ keystone.init({
 	'auth': true,
 	'user model': 'User',
 	'cookie secret': process.env.COOKIE_SECRET,
-	'cloudinary config': 'cloudinary://726856275187511:IVP8UuvsbIrU1UOx7v-SxT_s2fU@earo/'
+	'cloudinary config': 'cloudinary://726856275187511:IVP8UuvsbIrU1UOx7v-SxT_s2fU@earo/',
 
 });
 
@@ -72,25 +71,19 @@ keystone.set('email locals', {
 	},
 });
 
-
-const next = require('next');
-const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
-
-
 app.prepare()
 	.then(() => {
-		
-keystone.set('email tests', require('./routes/emails'));
 
-keystone.set('routes', require('./routes'));
+		keystone.set('email tests', require('./routes/emails'));
 
-keystone.set('nav', {
-	galleries: 'galleries',
-	enquiries: 'enquiries',
-	users: 'users',
-});
+		keystone.set('routes', require('./routes'));
+
+		keystone.set('nav', {
+			galleries: 'galleries',
+			enquiries: 'enquiries',
+			users: 'users',
+		});
 
 
-keystone.start();
-});
+		keystone.start();
+	});
