@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { store, view} from 'react-easy-state'
+
 
 class Counter extends Component {
 	state = {
