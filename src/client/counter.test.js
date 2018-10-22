@@ -1,13 +1,12 @@
 import {
 	counter,
-	total
+	total,
 } from './counter';
 
-const counter = jest.fn();
 
 test('counter', () => {
 
-	expect(counter(1, 2)).toBe(3)
+	expect(counter(1, 2)).toBe(3);
 	expect(counter(5, 2)).toBe(7);
 });
 
