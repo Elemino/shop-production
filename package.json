@@ -45,7 +45,7 @@
     "test": "jest --watchAll",
     "dev": "next",
     "lint": "eslint .",
-    "start": "next start node keystone.js",
-    "build": "next build webpack src/index.js public/js/bundle.js"
+    "start": "node keystone.js",
+    "build": "webpack src/index.js public/js/bundle.js"
   }
 }
