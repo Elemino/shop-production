@@ -4,3 +4,6 @@ The shop contains the ability to add to a shopping cart, products lists and id's
 
 Build: CircleCI
 Testing: Cyress & Jest
+
+
+Background Mongo command: sudo service mongod restart
