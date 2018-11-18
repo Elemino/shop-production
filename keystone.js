@@ -1,8 +1,7 @@
-var keystone = require('keystone');
-var mongoose = require('mongoose');
-const next = require('next');
+const keystone = require('keystone');
+const mongoose = require('mongoose');
 const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
+
 
 require('dotenv').config();
 
@@ -16,7 +15,7 @@ mongoose.createConnection(uristring, function (err, res) {
 	}
 });
 
-process.on('SIGINT', function () {
+process.on('SIGINT', function () {next
 	mongoose.connection.close(function () {
 		console.log('Mongoose default connection disconnected through app termination');
 		process.exit(0);
@@ -73,9 +72,6 @@ keystone.set('email locals', {
 	},
 });
 
-app.prepare()
-	.then(() => {
-
 		keystone.set('email tests', require('./routes/emails'));
 
 		keystone.set('routes', require('./routes'));
@@ -88,4 +84,4 @@ app.prepare()
 
 
 		keystone.start();
-	});
+	
