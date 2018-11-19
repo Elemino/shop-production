@@ -36,14 +36,11 @@
     "eslint-plugin-react": "^5.1.1",
     "gulp-jshint": "^2.1.0",
     "jest": "^23.6.0",
-    "jshint": "^2.9.6",
-    "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2"
+    "jshint": "^2.9.6"
   },
   "scripts": {
-    "test": "jest --watchAll",
     "lint": "eslint .",
     "start": "node keystone.js",
-    "build": "webpack src/index.js public/js/bundle.js"
+    "build": "public/js/bundle.js"
   }
 }
