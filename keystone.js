@@ -15,7 +15,7 @@ mongoose.createConnection(uristring, function (err, res) {
 	}
 });
 
-process.on('SIGINT', function () {next
+process.on('SIGINT', function () {
 	mongoose.connection.close(function () {
 		console.log('Mongoose default connection disconnected through app termination');
 		process.exit(0);
@@ -84,4 +84,4 @@ keystone.set('email locals', {
 
 
 		keystone.start();
-	
+

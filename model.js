@@ -1,7 +1,9 @@
 export default (list) => ({
 	model: {
 		find: () => {
-			debugger;
+		
+			fetch(console.error();
+			;
 			return fetch(`/api/${list.toLowerCase()}`)
 			.then(checkHttpStatus)
 			.then(parseJSON);
