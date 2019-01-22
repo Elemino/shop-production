@@ -1,9 +1,16 @@
-# Keystone.js online-shop
+# Keystone.js online-shop:
 
-The shop contains the ability to add to a shopping cart, products lists and id's and aims to incorporate full scale stripe integration with React.js on the front-end. 
+The shop contains the ability to add to a shopping cart, products lists, id's etc. 
+Each model has an 'add' method with different object attributes to utilize the Keystone API.
 
 Build: CircleCI
-Testing: Cyress & Jest
+Testing: Jest
+Dom testing: Cypress
 
 
-Background Mongo command: sudo service mongod restart
+Background Mongo service: sudo service mongod restart
+
+To do:
+
+[ ] Stripe integration
+[ ] Add react branch
