@@ -13,4 +13,4 @@ Background Mongo service: sudo service mongod restart
 To do:
 
 - [ ] Stripe integration
-- [*] Add react branch
+- [x] Add react branch
