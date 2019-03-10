@@ -1,4 +1,4 @@
-# Keystone.js online-shop 🔥
+# Keystone.js online-exchange 🔥
 
 The shop contains the ability to add to a shopping cart, products lists, id's etc. 
 Each model has an 'add' method with different object attributes to utilize the Keystone API.
@@ -13,4 +13,4 @@ Background Mongo service: sudo service mongod restart
 To do:
 
 - [ ] Stripe integration
-- [ ] Add react branch
+- [*] Add react branch
