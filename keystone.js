@@ -1,7 +1,5 @@
 const keystone = require('keystone');
 const mongoose = require('mongoose');
-const dev = process.env.NODE_ENV !== 'production';
-
 
 require('dotenv').config();
 
