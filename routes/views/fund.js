@@ -1,5 +1,5 @@
-const keystone = require('keystone');
-const async = require('async');
+var keystone = require('keystone');
+var async = require('async');
 
 let Order = keystone.list();
 let OrderItem = keystone.list('OrderItem');

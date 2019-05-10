@@ -21,7 +21,7 @@ exports = module.exports = (app) => {
 	app.get('/product/:product_id', routes.views.product);
 	app.get('/order/:order_id', routes.views.order);
 	app.get('/add_to_cart/', routes.views.add_to_cart);
-	app.get('/mycart', routes.views.mycart);
+	app.get('/fund', routes.views.fund);
 	app.get('/purchase', routes.views.purchase);
 	app.get('/signup', routes.views.signup);
 	app.all('/', keystone.middleware.cors);

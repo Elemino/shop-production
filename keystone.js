@@ -43,7 +43,7 @@ keystone.init({
 keystone.import('models');
 
 
-var User = keystone.list('User');
+let User = keystone.list('User');
 new User.model().save();
 
 keystone.set('locals', {
