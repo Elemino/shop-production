@@ -18,4 +18,4 @@ To do:
 - [ ] Stripe integration
 - [ ] Add react branch
 - [ ] Update frontend
-  [ ] Fix broken links
+- [ ] Fix broken links
